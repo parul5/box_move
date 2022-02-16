@@ -29,7 +29,6 @@ function App() {
       <div className="buttons-container">
         <Buttons buttonAction={addBox} setIsDisabled={setIsDisabled} />
       </div>
-      {/* <button onClick={() => { addBox() }}>Add</button> */}
     </div>
   );
 }
