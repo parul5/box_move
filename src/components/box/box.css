@@ -1,0 +1,21 @@
+.box {
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  margin: 0px;
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  transition: all 0.3s ease-out;
+}
+
+.box:focus {
+  border: 2px solid blue;
+}
+
+.text {
+  font-size: larger;
+  color: white;
+  font-weight: bold;
+}

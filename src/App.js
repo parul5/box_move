@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import Canvas from './components/canvas/canvas';
+import Buttons from './components/buttons/buttons'
 import './App.css';
 
 function App() {
+  const [boxes, setBoxes] = useState([]);
+  const [id, setId] = useState(0);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  let addBox = () => {
+    console.log(`ID is ${id}`)
+    setBoxes([...boxes, {
+      id: id
+    }])
+    setId(prev => ++prev);
+  }
+
+  let deleteAction = (id) => {
+    console.log('Element to be deleted ', id)
+    setBoxes(boxes.filter((box) => {
+      return box.id != id;
+    }))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container no-select">
+      <Canvas boxes={boxes} deleteAction={deleteAction} isDisabled={isDisabled} />
+      <div className="buttons-container">
+        <Buttons buttonAction={addBox} setIsDisabled={setIsDisabled} />
+      </div>
+      {/* <button onClick={() => { addBox() }}>Add</button> */}
     </div>
   );
 }
