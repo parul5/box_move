@@ -57,6 +57,7 @@ export default function Box({ id, deleteAction, isDisabled }) {
     const [position, setPosition] = useState([0, 0]);
 
     const onKey = (event) => {
+        if (isDisabled) return;
         if (event.code === "Delete") {
             deleteAction(event.target.style.zIndex)
             return;
