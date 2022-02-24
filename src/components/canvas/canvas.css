@@ -1,6 +1,8 @@
 .canvas {
   height: 800px;
   width: 1200px;
+  min-width: 1200px;
+  min-height: 800px;
   position: relative;
   background-color: bisque;
 }
