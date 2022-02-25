@@ -7,6 +7,8 @@ function App() {
   const [boxes, setBoxes] = useState([]);
   const [id, setId] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [initialPosition, setInitialPosition] = useState([0, 0]);
+  const [count, setCount] = useState(0);
 
   let addBox = () => {
     console.log(`ID is ${id}`)
@@ -14,6 +16,8 @@ function App() {
       id: id
     }])
     setId(prev => ++prev);
+    setCount(count => ++count);
+    setInitialPosition([200 * (count % 6), (200 * Math.floor((count / 6))) % 800]);
   }
 
   let deleteAction = (id) => {
@@ -25,7 +29,7 @@ function App() {
 
   return (
     <div className="container no-select">
-      <Canvas boxes={boxes} deleteAction={deleteAction} isDisabled={isDisabled} />
+      <Canvas boxes={boxes} deleteAction={deleteAction} isDisabled={isDisabled} initialPosition={initialPosition} />
       <div className="buttons-container">
         <Buttons buttonAction={addBox} setIsDisabled={setIsDisabled} />
       </div>

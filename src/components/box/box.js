@@ -53,8 +53,8 @@ const colorArray = [
     "#6666FF",
 ];
 
-export default function Box({ id, deleteAction, isDisabled }) {
-    const [position, setPosition] = useState([0, 0]);
+export default function Box({ id, deleteAction, isDisabled, initialPosition }) {
+    const [position, setPosition] = useState([initialPosition[0], initialPosition[1]]);
 
     const onKey = (event) => {
         if (isDisabled) return;
